@@ -4,14 +4,13 @@
   Date : 07/03/25
  */
 
-import com.sun.source.tree.Tree;
-
-public class tree extends Entry
+public class Tree extends Statement
  {
     String tree;
 
-    public tree(String tree)
+    public Tree(String tree)
     {
+      super();
       this.tree = tree;
     }
 
@@ -20,7 +19,7 @@ public class tree extends Entry
       return this.tree;
     }
 
-    public equals(Tree t)
+    public booelan equals(Tree t)
     {
       return this.toString().equalsIgnoreCase(t.toString());
     }

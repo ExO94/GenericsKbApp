@@ -4,12 +4,13 @@
   Date : 07/03/25
  */
 
-public class Term extends Entry
+public class Term extends Statement
 {
     String term;
     
     public Term(String term)
     {
+      super();
       this.term = term;
     }
 

@@ -4,12 +4,13 @@
   Date : 07/03/25
  */
 
- public class Confidence extends Entry
+ public class Confidence extends Statement
  {
     double confidenceValue;
     
     public Confidence(double confidence)
     {
+        super();
         this.confidenceValue = confidence;
     }
 
