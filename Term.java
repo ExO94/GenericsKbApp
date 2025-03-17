@@ -8,7 +8,8 @@
  * Represents a term in the database.
  * A term is a component of a statement and is used for searching and comparison.
  */
-public class Term {
+public class Term 
+{
   String term;
   
   /**
