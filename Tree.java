@@ -1,7 +1,7 @@
 /*
   Student Number: FRTETH003
   Name : Ethan Fortuin
-  Date : 07/03/25
+  Date : 17/03/25
  */
 
 /**
@@ -9,9 +9,9 @@
  * A tree is a component of a statement which describes the statements term.
  */
 public class Tree 
- {
+{
     String tree;
-
+    
     /**
      * Constructs a new Tree object with the specified tree.
      */
@@ -19,7 +19,7 @@ public class Tree
     {
       this.tree = tree;
     }
-
+    
     /**
      * Returns a string representation of the tree.
      */
@@ -27,7 +27,7 @@ public class Tree
     {
       return this.tree;
     }
-
+    
     /**
      * Compares this tree with another tree for equality.
      * The comparison is case-insensitive.
@@ -40,4 +40,18 @@ public class Tree
       }
       return this.toString().equalsIgnoreCase(t.toString());
     }
- }
+    
+    /**
+     * Checks if this tree contains the specified tree or vice versa.
+     * The comparison is case-insensitive.
+     */
+    public boolean contains(Tree t)
+    {
+      if (t == null)
+      {
+        return false;
+      }
+      return this.toString().toLowerCase().contains(t.toString().toLowerCase()) || 
+             t.toString().toLowerCase().contains(this.toString().toLowerCase());
+    }
+}
