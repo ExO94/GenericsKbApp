@@ -4,25 +4,40 @@
   Date : 07/03/25
  */
 
-public class Tree extends Statement
+/**
+ * Represents the tree of a statement in the database.
+ * A tree is a component of a statement which describes the statements term.
+ */
+public class Tree 
  {
     String tree;
 
+    /**
+     * Constructs a new Tree object with the specified tree.
+     */
     public Tree(String tree)
     {
-      super();
       this.tree = tree;
     }
 
+    /**
+     * Returns a string representation of the tree.
+     */
     public String toString()
     {
       return this.tree;
     }
 
-    public booelan equals(Tree t)
+    /**
+     * Compares this tree with another tree for equality.
+     * The comparison is case-insensitive.
+     */
+    public boolean equals(Tree t)
     {
+      if (t == null) 
+      {
+        return false;
+      }
       return this.toString().equalsIgnoreCase(t.toString());
     }
-
-
  }
