@@ -146,14 +146,18 @@ public class BSTDatabase
      */
     public String searchStatement(Term term) 
     {
+        if (term == null) {
+            return "Search term cannot be null";
+        }
+    
         List<Statement> matchingStatements = new ArrayList<>();
         searchByTermRecursive(root, term, matchingStatements);
-
+    
         if (matchingStatements.isEmpty()) 
         {
             return "No matches found for term: " + term;
         }
-
+    
         StringBuilder results = new StringBuilder();
         for (Statement statement : matchingStatements) 
         {
@@ -171,25 +175,30 @@ public class BSTDatabase
         }
         return results.toString();
     }
-
-    /**
-     * Recursively searches the BST for statements matching the given term.
-     */
+    
     private void searchByTermRecursive(BSTNode node, Term term, List<Statement> results) 
     {
         if (node == null) 
         {
             return;
         }
-
-        searchByTermRecursive(node.left, term, results);
-
-        if (term.equals(node.statement.getTerm()) || containsSearchTerm(node.statement.getTerm().toString(), term.toString())) 
+    
+        int comparison = term.toString().compareToIgnoreCase(node.statement.getTerm().toString());
+        
+        if (comparison == 0 || containsSearchTerm(node.statement.getTerm().toString(), term.toString())) 
         {
             results.add(node.statement);
         }
-
-        searchByTermRecursive(node.right, term, results);
+    
+        if (comparison <= 0) 
+        {
+            searchByTermRecursive(node.left, term, results);
+        }
+        
+        if (comparison >= 0 || containsSearchTerm(node.statement.getTerm().toString(), term.toString())) 
+        {
+            searchByTermRecursive(node.right, term, results);
+        }
     }
 
     /**
