@@ -1,3 +1,9 @@
+/*
+  Student Number: FRTETH003
+  Name : Ethan Fortuin
+  Date : 17/03/25
+ */
+
 import java.util.Scanner;
 
 public class ArrayMain 
